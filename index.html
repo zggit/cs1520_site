@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>CS/COE 1520</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="client_side_script.js" type="text/javascript"></script>
+</head>
+
+<body onload="hideAll()">
+  <div id="header">
+    <h1>CS/COE 1520</h1>
+    <h1>Programming Languages for Web Applications</h1>
+    <h2>Spring 2014</h2>
+  </div>
+
+  <!-- main body of the page -->
+  <div id="content">
+
+    <!-- lecture/instructor information and recitation/ta information -->
+    <div id="basics">
+      <table>
+        <tr>
+          <td>Lecture:</td>
+          <td>T H 9:30-10:45AM @ SENSQ 5129</td>
+        </tr>
+        <tr>
+          <td>Instructor:</td>
+          <td>
+            Nicholas Farnan (nlf4 [at] pitt.edu)
+            <br />
+            <a href="http://people.cs.pitt.edu/~nlf4/">http://people.cs.pitt.edu/~nlf4/</a>
+            <br />
+            Office hours: T H 11AM-12PM; W 10AM-12PM
+          </td>
+        </tr>
+        <tr>
+          <td>Recitations:</td>
+          <td>M 10-10:50AM @ SENSQ 5505
+              <br />
+              M 2-2:50PM @ SENSQ 5505
+          </td>
+        </tr>
+        <tr>
+          <td>TA:</td>
+          <td>
+            Nils Murrugarra Llerena (nineil.cs [at] gmail.com)
+            <br />
+            Office Hours:  M 9-10AM; W F 9-11:30AM
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <br />
+
+    <!-- announcements -->
+    <div class="itemtitle" onclick="toggleItem('announcements')">
+      <table>
+        <tr>
+          <td id="announcementstoggle">+</td>
+          <td>Announcements</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="announcements" class="itembody">
+      <table>
+        <tr>
+          <td>Jan&nbsp;28</td>
+          <td>
+            <a href="assignments/a1/a1.html">Assignment 1</a> has been posted to the Assignments section.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="divider"></div></td>
+        </tr>
+
+        <tr>
+          <td>Jan&nbsp;19</td>
+          <td>
+            Quiz and Exam dates have been posted to the Schedule.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="divider"></div></td>
+        </tr>
+
+        <tr>
+          <td>Jan&nbsp;10</td>
+          <td>
+            Nils' office hours have been updated.  He will now be holding office hours on Monday from 9-10AM, and his office hours on Wednesday and Friday have been extended a half hour (now 9-11:30AM).
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="divider"></div></td>
+        </tr>
+
+        <tr>
+          <td>Jan&nbsp;6</td>
+          <td>
+            Welcome to CS/COE 1520!
+            <br />
+            Course web site is up and the first lecture slides have been posted.
+            <br />
+            Please look over the Course Information and Policies.
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- schedule -->
+    <div class="itemtitle" onclick="toggleItem('schedule')">
+      <table>
+        <tr>
+          <td id="scheduletoggle">+</td>
+          <td>Schedule</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="schedule" class="itembody">
+      <table>
+        <tr>
+          <td>#</td><td>Date</td><td>Concepts</td><td>Materials</td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>1</td><td>Jan 7</td>
+          <td>
+            Introduction to the course
+            <br />
+            Goals of the course
+            <br />
+            Introduction to web servers
+            <br />
+            Introduction to HTML
+          </td>
+          <td>
+            <a href="slides/lec1_class_intro.pdf">slides</a>
+            <br />
+            <a href="php_handouts/ex1.txt">ex1.txt</a>
+            <br />
+            <a href="php_handouts/ex1.html">ex1.html</a>
+            <br />
+            <a href="php_handouts/ex1.php.txt">ex1.php.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex1.php">ex1.php</a>
+            <br />
+            Sebesta Ch. 1, 2, 9
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>2</td><td>Jan 9</td>
+          <td>
+            Begin server-side scripting
+            <br />
+            Introduction to PHP
+            <br />
+            Embedding PHP in HTML
+            <br />
+            PHP types and typing
+            <br />
+            PHP variables, expressions, and control statements
+          </td>
+          <td>
+            <a href="slides/lec2_intro_php.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex2.php">ex2.php</a>, w/ <a href="php_handouts/ex2.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex3.php">ex3.php</a>, w/ <a href="php_handouts/ex3.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex3b.php">ex3b.php</a>, w/ <a href="php_handouts/ex3b.php.txt">.txt</a>
+            <br />
+            <a href="php_handouts/ex3c.html">ex3c.html</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex3wrong.php">ex3wrong.php</a>, w/ <a href="php_handouts/ex3wrong.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex4.php">ex4.php</a>, w/ <a href="php_handouts/ex4.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex5.php">ex5.php</a>, w/ <a href="php_handouts/ex5.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex6.php">ex6.php</a>, w/ <a href="php_handouts/ex6.php.txt">.txt</a>
+            <br />
+            Sebesta Ch. 9
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>R</td><td>Jan 13</td>
+          <td>
+            Setting up your AFS home directory to host PHP files for the class.
+          </td>
+          <td>
+            <a href="server_setup.html">Setup page</a>
+            <br />
+            <a href="slides/r1_setup.pdf">Nils' recitation slides</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>3</td><td>Jan 14</td>
+          <td>
+            PHP Arrays
+          </td>
+          <td>
+            <a href="slides/lec3_php_arrays.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex7.php">ex7.php</a>, w/ <a href="php_handouts/ex7.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex8.php">ex8.php</a>, w/ <a href="php_handouts/ex8.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex9.php">ex9.php</a>, w/ <a href="php_handouts/ex9.php.txt">.txt</a>
+            <br />
+            Sebesta Ch. 9
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>4</td><td>Jan 16</td>
+          <td>
+            PHP Functions
+            <br />
+            File I/O in PHP
+          </td>
+          <td>
+            <a href="slides/lec4_functions_and_files.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex10.php">ex10.php</a>, w/ <a href="php_handouts/ex10.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex11.php">ex11.php</a>, w/ <a href="php_handouts/ex11.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/readwrite.php">readwrite.php</a>, w/ <a href="php_handouts/readwrite.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/flock.php">flock.php</a>, w/ <a href="php_handouts/flock.php.txt">.txt</a>
+            <br />
+            Sebesta Ch. 9
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>5</td><td>Jan 21</td>
+          <td>
+            HTTP GET and POST
+            <br />
+            How scripts are run on the server
+            <br />
+            HTTPS
+          </td>
+          <td>
+            <a href="slides/lec5_get_post_https.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/getpost.html">getpost.html</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/getpost.php">getpost.php</a>, w/ <a href="php_handouts/getpost.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex12.php">ex12.php</a>, w/ <a href="php_handouts/ex12.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex12b.php">ex12b.php</a>, w/ <a href="php_handouts/ex12b.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/getpostS.php">getpostS.php</a>, w/ <a href="php_handouts/getpostS.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/sendmail.php">sendmail.php</a>, w/ <a href="php_handouts/sendmail.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/mail.php">mail.php</a>, w/ <a href="php_handouts/mail.php.txt">.txt</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>6</td><td>Jan 23</td>
+          <td>
+            Cookies
+            <br />
+            PHP Sessions
+          </td>
+          <td>
+            <a href="slides/lec6_cookies_and_sessions.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex13.php">ex13.php</a>, w/ <a href="php_handouts/ex13.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/usesession.php">usesession.php</a>, w/ <a href="php_handouts/usesession.php.txt">.txt</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>R</td><td>Jan 27</td>
+          <td>
+            Version control with Git.
+          </td>
+          <td>
+            <a href="slides/git.pdf">recitation slides</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>7</td><td>Jan 28</td>
+          <td>
+            Assignment 1 overview
+            <br />
+            Object-oriented programming in PHP
+          </td>
+          <td>
+            <a href="slides/lec7_oop.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex14.php">ex14.php</a>, w/ <a href="php_handouts/ex14.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Foo.php">Foo.php</a>, w/ <a href="php_handouts/Foo.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/SubFoo.php">SubFoo.php</a>, w/ <a href="php_handouts/SubFoo.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/usesession-oop.php">usesession-oop.php</a>, w/ <a href="php_handouts/usesession-oop.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/User.php">User.php</a>, w/ <a href="php_handouts/User.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex15.php">ex15.php</a>, w/ <a href="php_handouts/ex15.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Animal.php">Animal.php</a>, w/ <a href="php_handouts/Animal.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Bird.php">Bird.php</a>, w/ <a href="php_handouts/Bird.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Fish.php">Fish.php</a>, w/ <a href="php_handouts/Fish.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Shark.php">Shark.php</a>, w/ <a href="php_handouts/Shark.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/Comparable.php">Comparable.php</a>, w/ <a href="php_handouts/Comparable.php.txt">.txt</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>8</td><td>Jan 30</td>
+          <td>
+            Finish Jan 28th's OOP lecture
+            <br />
+            Regular Expressions
+          </td>
+          <td>
+            <a href="slides/lec8_regex.pdf">slides</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex17.php">ex17.php</a>, w/ <a href="php_handouts/ex17.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex18.php">ex18.php</a>, w/ <a href="php_handouts/ex18.php.txt">.txt</a>
+            <br />
+            <a href="http://cs1520.cs.pitt.edu/~nlf4/demo/ex19.php">ex19.php</a>, w/ <a href="php_handouts/ex19.php.txt">.txt</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>R</td><td>Feb 3</td>
+          <td>
+            <h3>Quiz 1</h3>
+          </td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>14</td><td>Feb 20</td>
+          <td>
+            <h3>Exam 1</h3>
+          </td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>R</td><td>Mar 31</td>
+          <td>
+            <h3>Quiz 2</h3>
+          </td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><div class="divider"></div></td>
+        </tr>
+        <tr>
+          <td>28</td><td>Apr 17</td>
+          <td>
+            <h3>Exam 2</h3>
+          </td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <!-- assignments -->
+    <div class="itemtitle" onclick="toggleItem('assignments')">
+      <table>
+        <tr>
+          <td id="assignmentstoggle">+</td>
+          <td>Assignments</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="assignments" class="itembody">
+      <table>
+        <tr>
+          <td>
+            <a href="assignments/a1/a1.html">Assignment 1</a>
+            <br />
+            <a href="assignments/a1/a1_examples.html">Examples</a>
+          </td>
+          <td>
+            Due:  Thursday February 13, 2013 by 11:59 PM
+            <br />
+            Late deadline:  Saturday February 15, 2013 by 11:59 PM
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- class info and policies -->
+    <div class="itemtitle" onclick="toggleItem('policies')">
+      <table>
+        <tr>
+          <td id="policiestoggle">+</td>
+          <td>Course Information and Policies</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="policies" class="itembody">
+      <h3>Textbook</h3>
+      <p>
+        Programming the World Wide Web, 7/E
+        <br />
+        by Robert Sebesta
+        <br />
+        <br />
+        ISBN:  9780132665810
+        <br />
+        <a href="http://www.pearsonhighered.com/pearsonhigheredus/educator/product/products_detail.page?isbn=9780132665810">Publisher's site</a>
+      </p>
+
+      <h3>Grading Breakdown</h3>
+      <table>
+      <tr><td>Exam 1</td><td>20%</td></tr>
+      <tr><td>Exam 2</td><td>20%</td></tr>
+      <tr><td>Quizzes</td><td>10%</td></tr>
+      <tr><td>Assignments</td><td>50%</td></tr>
+      </table>
+
+      <h3>General Policies</h3>
+      <p>
+        Each student is expected to do his/her own work. For a <em>first offense</em>, a student caught collaborating/cheating in any way will receive a <em>zero</em> for the exam/homework/project in question. In the event of a <em>second offense</em>, the student will <em>receive an F for the course</em> and may be subject to stronger action.
+        <br />
+        Note: Submissions that are alike in a substantive way (not due to coincidence) will be considered to be cheating by <em>all involved parties</em>.
+        <br />
+        Please protect yourselves by only storing your files in private directories, and by retrieving all printouts promptly. For more information on the Academic Integrity Policies of the School of Arts and Sciences, see this <a href="http://www.as.pitt.edu/faculty/policy/integrity.html">link</a>.
+      </p>
+      <p>
+        Students are encouraged to attend all lectures, which frequently include material that is not directly taken from the text. If a student misses a lecture, he/she is still responsible for the material covered and is advised to copy the notes from a classmate.
+      </p>
+      <p>
+        An abundance of information, including announcements, handouts, review sheets and solutions will be posted on this web page (and possibly TA pages as well) throughout the term. Students are expected to be aware of all information that is posted on our web pages, and should access them frequently.
+      </p>
+      <p>
+        All graded materials that a student receives back should be saved in a safe place until after the term has ended and he/she has received and accepts his/her final grade. In this way, any grade discrepancies can be easily resolved.
+      </p>
+
+      <h3>Exams</h3>
+      <p>
+        Students are expected to be present for both exams. Make-up exams will only be given in the event of an emergency, and only if the instructor (Nicholas Farnan) is informed in advance. Failure to arrange for a make-up exam with the instructor prior to missing an exam will result in a zero for that exam.
+      </p>
+
+      <h3>Assignments</h3>
+      <p>
+        There will be approximately 4-5 programs assigned throughout the term, each worth the same amount toward the final grade.
+      </p>
+      <p>
+        Programs will be submitted electronically to a submission site set up for the course. More details on submission guidelines will be provided in recitation and on this web site.
+      </p>
+      <p>
+        On-time projects must be received at the submission site by 11:59PM on the due date. Any project received after this time will be considered to be late.
+      </p>
+      <p>
+        Late projects must be received at the submission site by 11:59PM on the late due date. Late projects will be penalized 15 points (out of 100). Projects submitted after the late due date will not be graded and will receive a score of 0.
+      </p>
+      <p>
+        More details on the programs and submission guidelines will be given with the first assignment.
+      </p>
+
+      <h3>Quizzes</h3>
+      <p>
+        Quizzes will be given during recitations, and will be announced at least one class or recitation before they are given. They will generally include material covered in the previous classes and recitations.
+      </p>
+      <p>
+        Two quizzes will be given, each counting for an equal portion of the final grade.
+      </p>
+      <p>
+        As with exams, quizzes can only be made up if you make arrangements with the TA (Nils Murrugarra Llerena) in advance. If you miss a quiz without a scheduled make-up, you will receive a zero for that quiz.
+      </p>
+    </div>
+
+    <!-- other helpful links -->
+    <div class="itemtitle" onclick="toggleItem('other')">
+      <table>
+        <tr>
+          <td id="othertoggle">+</td>
+          <td>Other Relevant Links</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="other" class="itembody">
+      <table>
+        <tr>
+          <td>PHP</td>
+          <td><a href="http://www.php.net/">http://www.php.net/</a></td>
+        </tr>
+        <tr>
+          <td>git</td>
+          <td><a href="http://git-scm.com/">http://git-scm.com/</a></td>
+        </tr>
+        <tr>
+          <td>Apache</td>
+          <td><a href="http://httpd.apache.org/">http://httpd.apache.org/</a></td>
+        </tr>
+        <tr>
+          <td>CS Helpdesk Schedule</td>
+          <td><a href="http://www.cs.pitt.edu/undergrad/helpdesk/">http://www.cs.pitt.edu/undergrad/helpdesk/</a></td>
+        </tr>
+        <tr>
+          <td>Pitt Academic Calendar</td>
+          <td><a href="http://www.provost.pitt.edu/information-on/calendar.html">http://www.provost.pitt.edu/information-on/calendar.html</a></td>
+        </tr>
+        <tr>
+          <td>Pitt Student Counseling Center</td>
+          <td><a href="http://www.studentaffairs.pitt.edu/cchome">http://www.studentaffairs.pitt.edu/cchome</a></td>
+        </tr>
+        <tr>
+          <td>Pitt Disability Resources</td>
+          <td><a href="http://www.studentaffairs.pitt.edu/drswelcome">http://www.studentaffairs.pitt.edu/drswelcome</a></td>
+        </tr>
+      </table>
+    </div>
+
+  <!-- close content div -->
+  </div>
+
+
+</body>
+</html>

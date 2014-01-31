@@ -1,0 +1,43 @@
+body {
+  background-color:	#ffffff
+}
+
+h1,h2,h3 {
+  text-align: 		center;
+}
+
+td {
+  padding:          0.5em;
+}
+
+div#content {
+  width: 			45em;
+  margin:			auto;
+}
+
+div.divider {
+  background-color: #bbbbbb;
+  width:            75%;
+  margin:           auto;
+  padding:          0.1em;
+}
+
+div#basics {
+  background-color: #bbbbbb;
+  padding:          0.5em;
+}
+
+div.itemtitle {
+  background-color: #bbbbbb;
+  padding:          0.5em;
+}
+
+div.itembody {
+  background-color: #dddddd;
+  font-size:        smaller;
+  padding:          0.5em;
+}
+
+div.itembody table {
+  width:            100%;
+}

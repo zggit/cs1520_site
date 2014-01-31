@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <style type="text/css">
+  div#content {
+    width:  45em;
+    margin: auto;
+    background-color:  #dddddd;
+    padding: 0.5em;
+  }
+  div.code {
+    width:  80%;
+    margin: auto;
+    background-color:  #000000;
+    color:  #bbbbbb;
+    padding: 0.5em;
+  }
+  </style>
+  <title>CS/COE 1520 Server Setup</title>
+</head>
+
+<body>
+  <h1 style="text-align: center;">Class Webserver Setup</h1>
+
+  <div id="content">
+
+    <p>
+      We have set up a server within the department that you can use to run examples from lecture and your projects throughout the course.
+      Here, we will show you how to set up a web directory so that the Apache webserver running on our server machine can see your PHP files and process requests for them.
+    </p>
+
+    <h2>Connecting to unixs.cis.pitt.edu</h2>
+    <p>
+      The best way to set up your web directory is going to be by connecting to the University's <code>unixs.cis.pitt.edu</code> server via <a href="http://en.wikipedia.org/wiki/Secure_Shell">SSH</a>.
+      On Linux, there are a multitude of terminal emulators (e.g., gnome-terminal, konsole, XFCE Terminal) which can be used to run a command line SSH client.
+      If your distribution does not ship with an SSH client, refer to the distribution's documentation for installing OpenSSH.
+      On Mac, you can use the Terminal application and command line SSH client that come bundled with OSX.
+      On Windows, I'd recommend using the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a> SSH client.
+    </p>
+    <p>
+      PuTTY has a menu to guide you through the connection process.
+      For help with PuTTY, you can refer to the <a href"http://the.earth.li/~sgtatham/putty/0.63/htmldoc/">PuTTY User Manual</a>.
+    </p>
+    <p>
+      From a Mac or Linux terminal, you can simply run the following command:
+    </p>
+    <div class="code">
+    <code>
+      ssh &lt;your_pitt_id&gt;@unixs.cis.pitt.edu
+    </code>
+    </div>
+    <p>
+      For example, my pitt id is <strong>nlf4</strong>, so I connect to the server by entering the following command:
+    </p>
+    <div class="code">
+    <code>
+      ssh nlf4@unixs.cis.pitt.edu
+    </code>
+    </div>
+
+    <h2>Hosting Pages on cs1520.cs.pitt.edu</h2>
+    <p>
+      First, we need to understand how the server looks up files to evaluate (i.e., run through the PHP interpreter), and return in response to client requests.
+      As an example, consider a client request for the following URL:
+    </p>
+
+    <code>http://cs1520.cs.pitt.edu/~<span style="color: blue;">&lt;your_pitt_id&gt;</span>/<span style="color: green;">dir</span>/<span style="color: purple;">script.php</span></code>
+
+    <p>
+      Our cs1520 Apache server will look for a file to evaluate and return at the following path:
+    </p>
+
+    <code><span style="color: blue;">&lt;your_unix_home_directory_path&gt;</span>/public/csweb/<span style="color: green;">dir</span>/<span style="color: purple;">script.php</span></code>
+
+    <p>
+      In the first lecture, I showed the result of evaluating ex1.php on the cs1520 server.
+      If you look on the schedule, the link that I requested from the server was:
+    </p>
+
+    <code>http://cs1520.cs.pitt.edu/~<span style="color: blue;">nlf4</span>/<span style="color: green;">demo</span>/<span style="color: purple;">ex1.php</span></code>
+
+    <p>
+      Hence, the server evaluated the file at the following path:
+    </p>
+
+    <code><span style="color: blue;">/afs/pitt.edu/home/n/l/nlf4</span>/public/csweb/<span style="color: green;">demo</span>/<span style="color: purple;">ex1.php</span></code>
+
+    <p>
+      In short, our Apache server looks for a <code>csweb</code> folder within a <code>public</code> folder in your home directory, and considers all files and folders within the <code>csweb</code> directory to be what you wish to host to the Internet.
+    </p>
+
+    <p>
+      Note that your home directories are stored on <a href="http://en.wikipedia.org/wiki/Andrew_File_System">AFS</a>.  Hence, you can view and edit these files from any machine connected to AFS (e.g., <code>unixs.cis.pitt.edu</code>), and Apache can read them from another machine connected to AFS (e.g., <code>cs1520.cs.pitt.edu</code>).
+      While this is convenient, it also means that you must appropriately set the access control permissions on your web directory so that others (with the exception of myself and Nils, of course) cannot view your assignment files through AFS.
+      AFS mostly ignores traditional <a href="http://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions">Unix file permissions</a>, and protects folders using <a href="http://www.cs.cmu.edu/~help/afs/afs_acls.html">AFS access control lists</a> (AFS ACLs).
+      Hence, we must adjust the AFS ACLs to ensure web directories on the cs1520 server are adequately protected.
+    </p>
+
+    <p>
+      To do this, you need to (while logged into <code>unixs.cis.pitt.edu</code>) move into your <code>public</code> directory, create a <code>csweb</code> directory, move into the <code>csweb</code> directory, and set the AFS ACLs for that directory so that:  by default users are denied access to files in your web directory, Nils (nim60) and I (nlf4) can read and list files in the directory, and the Apache web server has full access to the directory.
+    </P>
+
+    <div class="code">
+    <code>
+      cd public
+      <br />
+      mkdir csweb
+      <br />
+      cd csweb
+      <br />
+      fs setacl -dir . -acl system:anyuser none
+      <br />
+      fs setacl -dir . -acl nlf4 rl
+      <br />
+      fs setacl -dir . -acl nim60 rl
+      <br />
+      fs setacl -dir . -acl csweb rliwdk
+    </code>
+    </div>
+
+    <p>
+      Now that the permissions for you web directory are properly set up, create a directory from which you can retrieve lecture examples.
+    </p>
+
+    <div class="code">
+    <code>
+      mkdir examples
+    </code>
+    </div>
+
+    <p>
+      Finally, you'll need to copy an example into this directory.
+    </p>
+
+    <div class="code">
+    <code>
+      cd examples
+      <br />
+      cp /afs/pitt.edu/home/n/l/nlf4/public/csweb/demo/ex1.php .
+      <br />
+      cp /afs/pitt.edu/home/n/l/nlf4/public/csweb/demo/ex1.txt .
+    </code>
+    </div>
+
+    <p>
+      Now, using your favorite browser, you should be able to view this example by going to <code>http://cs1520.cs.pitt.edu/~&lt;your_pitt_id&gt;/examples/ex1.php</code>
+    </p>
+
+    <p>
+      Note again that you don't need to specify the <code>public</code> and <code>csweb</code> through the browser as Apache is configured to look in those directories for files that you want to host.
+    </p>
+
+    <p>
+      Now, try creating another directory and writing some of your own PHP files in it to experiment with the topics we've discussed in lecture.
+      If you'd prefer to write PHP files on your local machine and then copy them to the server, I'd recommend using <a href="http://winscp.net/eng/index.php">WinSCP</a> on Windows, or the <code>scp</code> terminal command on Linux or Mac.
+      Like PuTTY, WinSCP has a connection menu to help you along (documentation can be found <a href="http://winscp.net/eng/docs/start">here</a>).
+      <code>scp</code> can be run as follows (from a terminal on your local machine):
+    </p>
+
+    <div class="code">
+    <code>
+      scp filename.php &lt;your_pitt_id&gt;@unixs.cis.pitt.edu:public/csweb/php/
+    </code>
+    </div>
+
+    <p>
+      Note that this would copy the file to a directory named <code>php</code> in your <code>csweb</code> directory.
+      To copy to a different directory in <code>csweb</code>, change the end of the path following <code>unixs.cis.pitt.edu:</code> appropriately.
+    </p>
+
+    <p>
+      Finally, use <code>ls -l</code> and <code>fs listacl</code> to view lists of files in your web directories and the AFS ACLs for those directories (respectively).
+      You should also run <code>fs help</code>, <code>fs help listacl</code>, <code>fs help setacl</code>, <code>man ls</code>, <code>man mkdir</code>, <code>man cd</code>, and <code>man man</code> to learn more about the commands used throughout this tutorial.
+    </p>
+  </div>
+</body>
+
+</html>
